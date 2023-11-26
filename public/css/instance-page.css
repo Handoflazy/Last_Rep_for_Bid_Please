@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,500;0,700;1,500;1,700&family=Poppins:wght@500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.body {
+    background-color: transparent;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background: linear-gradient(#000428, #004e92); */
+}
+
+.container {
+    width: 80%;
+    height: 90vh;
+    /* background-color: #667eea → #764ba2; */
+    /* background: linear-gradient(#000428, #004e92); */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+/* This the left container */
+.container .left-container {
+    background-color: transparent;
+    width: 44%;
+    height: 100%;
+    position: relative;
+}
+
+
+.slider-image {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    /* overflow: auto; */
+    overflow: hidden;
+    position: relative;
+    /* box-shadow: 0 0 20px #dcdee0; */
+}
+
+.slider-image .slider-image-container {
+    width: 100%;
+    height: auto;
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    transform: translateX(0);
+    transition: all .7s ease;
+}
+
+.slider-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.list-circle {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.list-circle i {
+    font-size: 11px;
+    color: #e6e6e6;
+}
+
+.list-circle i.active {
+    color: black;
+}
+
+.bidding-container {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 20px #dcdee0;
+}
+
+.bidding-container > *:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.product-name {
+    color: #e6e6e6;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 20px #dcdee0;
+    padding: 10px;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(167,14,133,1) 0%, rgba(118,14,158,1) 52%, rgba(124,45,227,1) 100%);
+    margin-top: 15px;
+}
+
+.bidding-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    margin-top: 25px;
+    padding: 0 15px;
+}
+
+.bidding-info > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bidding-info > div > div {
+    color: #e80918;
+}
+
+.bidding-info > div > span:first-of-type{
+    color:#a19d9d;
+    font-size: 11px;
+}
+
+.bidding-info > div > span:last-of-type{
+    color: #e80918;
+}
+
+.bidding-info > div:first-of-type > span {
+    color: #a19d9d;
+}
+
+
+.bidding-place {
+    width: 100%;
+    background-color: transparent;
+    padding: 30px;
+    border-top: 1px solid #e6e6e6;
+}
+
+.bidding-place form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bidding-place form > * {
+    width: 48%;
+    height: auto;
+}
+
+.bidding-place form > div {
+    position: relative;
+}
+
+.bidding-place form > div label {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: #a19d9d;
+}
+
+.bidding-place form > div input {
+    width: 100%;
+    height: auto;
+    border: 1px solid #e6e6e6;
+    padding-left: 10px;
+    background-color: white;
+    color: black;
+}
+
+.bidding-place form input, .bidding-place form button {
+    outline: none;
+    border: none;
+    padding: 10px 0;
+    color: white;
+    border-radius: 5px;
+    z-index: 100;
+    background-color: #e80918;
+}
+
+.bidding-place form > button {
+    cursor: pointer;
+}
+/* End of the left container */
+
+
+
+
+
+
+
+
+.container .right-container {
+    width: 50%;
+    height: 100%;
+    background-color: transparent;
+    box-shadow: 0 0 20px #dcdee0;
+    /* border: 1px solid black; */
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.right-container::-webkit-scrollbar {
+    width: 2px;
+    /* width: 0; */
+}
+
+.right-container::-webkit-scrollbar-thumb {
+    /* background-color: #888; */
+    /* background-color: #0000EE; */
+    background-color: #e6e6e6;
+    background-color: yellow;
+    border-radius: 4px;
+}
+
+.right-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.right-container::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+}
+
+.right-container::-webkit-scrollbar-track:hover {
+    background-color: #ddd;
+}
+
+.right-container > div:first-child {
+    width: 100%;
+    height: auto;
+    padding: 12px;
+    color: white;
+    background-color: #4083f7;
+    font-size: 14px;
+    border-radius: 5px;
+    box-shadow: 0 0 2px #4083f7;
+    text-align: center;
+}
+
+.list-bidding {
+    background-color: transparent;
+}
+
+.list-bidding .lb-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    font-size: 13px;
+    margin: 15px 0;
+    border-radius: 5px;
+    padding: 5px 0;
+    border: 1px dotted #a19d9d;
+} 
+
+.lb-item > *:nth-child(1) {
+    width: 10%;
+}
+
+.lb-item > *:nth-child(2) {
+    width: 50%;
+    margin-left: 20px;
+    background-color: transparent;
+}
+
+.lb-item > *:nth-child(2) p:last-of-type{
+    font-size: 10px;
+    color: #a19d9d;
+}
+
+.lb-item > *:nth-child(3) {
+    width: 40%;
+    text-align: end;
+    padding-right: 10px;
+    color: #e80918;
+    font-weight: bold;
+}
+
+.lb-item img {
+    width: 30px;
+    height: auto;
+    object-fit: contain;
+    padding-left: 10px;
+}
+
+
+
+
+
+/* Need to Login Section */
+.need-to-login {
+    margin-left: 10%;
+}
+
+.need-to-login h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.need-to-login button {
+    margin-top: 20px;
+    outline: none;
+    border: 1px solid #5f92e3;
+    background-color: #5f92e3;
+    padding: 13px 30px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .3s ease;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.need-to-login button:hover {
+    background-color: white;
+    color: #4083f7;
+}
+
+.need-to-login button i {
+    font-size: 25px;
+}

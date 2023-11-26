@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/instance-page.css">
+    <link rel="stylesheet" href="/css/alert.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Instance Page</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-left">
+            <a href="/">Home</a>
+            <a href="/product">Product</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div class="header-right">
+            <a href="/sign-in">Login</a>
+        </div>
+    </div>
+
+
+    <!-- This is the body -->
+    <div class="body">
+        <div class="container">
+
+            <% if (isLoggin) { %>
+                <div class="left-container">
+                    <div class="slider-image">
+                        <div class="slider-image-container">
+                            <% for (const item of productDetails[0].SliderImages.split(',')) { %>
+                                <p>
+                                    <%= productDetails.Name %>
+                                </p>
+                                <img src="/img/slider/<%= productDetails[0].Name.toLowerCase().replace(/\s+/g, '-') + '/' + item %>"
+                                    alt="">
+                                <% } %>
+                        </div>
+
+                        <div class="list-circle">
+                            <i class='bx bxs-circle active'></i>
+                            <i class='bx bxs-circle'></i>
+                            <i class='bx bxs-circle'></i>
+                            <i class='bx bxs-circle'></i>
+                            <i class='bx bxs-circle'></i>
+                            <i class='bx bxs-circle'></i>
+                        </div>
+                    </div>
+
+                    <div class="bidding-container">
+                        <div class="product-name">
+                            <p class="<%= productDetails[0].ProductID %>">
+                                <%= productDetails[0].Name%>
+                            </p>
+                        </div>
+
+
+                        <div class="bidding-info">
+                            <div>
+                                <span>Bids close in</span>
+                                <div>
+                                    <% timeRemainingVal.forEach((item, index)=> { %>
+                                        <% if (index==0) { %>
+                                            <span>
+                                                <%= item %>h
+                                            </span>
+                                            <% } else if (index==1) { %>
+                                                <span>
+                                                    <%= item %>m
+                                                </span>
+                                                <% } else { %>
+                                                    <span>
+                                                        <%= item %>s
+                                                    </span>
+                                                    <% } %>
+                                                        <% }) %>
+                                </div>
+                            </div>
+                            <div>
+                                <span>Current bid</span>
+                                <span>
+                                    <%= currentBid %>
+                                </span>
+                            </div>
+                            <div>
+                                <span>Total Bids</span>
+                                <span>
+                                    <%= biddingItems.length %>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="bidding-place">
+                            <form action="#">
+                                <div>
+                                    <label for="input-price">Minimum Bid > <%= currentBid %></label>
+                                    <input type="text" id="input-price" required placeholder="$ Your Bid Price">
+                                </div>
+                                <button type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-container">
+                    <div>
+                        <p>Bids</p>
+                    </div>
+
+                    <div class="list-bidding">
+
+                        <% for (const item of biddingItems) { %>
+                            <div class="lb-item">
+                                <img src="/img/icon.jpeg" alt="">
+                                <div class="bidder-info">
+                                    <p>
+                                        <%= item.Username %>
+                                    </p>
+                                    <p>
+                                        <%= item.Timestamp %>
+                                    </p>
+                                </div>
+                                <div>
+                                    <%= item.BidAmount %>
+                                </div>
+                            </div>
+                            <% } %>
+
+                    </div>
+                </div>
+                <% } else { %>
+                    <div class="need-to-login">
+                        <form action="/sign-in" method="get">
+                            <h1>Bạn Chưa Đăng Nhập</h1>
+                            <button type="submit">ĐĂNG NHẬP<i class='bx bx-right-arrow-alt'></i></button>
+                        </form>
+                    </div>
+                    <% } %>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="footer-info">
+            <h1>Auction Online</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br> Nullam consectetur justo sed ex aliquam,
+                non
+                ornare purus faucibus.</p>
+            <div class="contact-link-list">
+                <i class='bx bxl-facebook-circle'></i>
+                <i class='bx bxl-twitter'></i>
+                <i class='bx bxl-google-plus-circle'></i>
+                <i class='bx bxl-instagram-alt'></i>
+                <i class='bx bxl-github'></i>
+            </div>
+        </div>
+
+        <div class="copy-right">
+            <p>© 2023 Tất cả các quyền thuộc Nguyễn Hồng Vũ.</p>
+        </div>
+    </div>
+
+    <% if (isLoggin) { %>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            const socket = io();
+        </script>
+    <% } %>
+    <script src="/js/instance-page.js"></script>
+</body>
+
+</html>

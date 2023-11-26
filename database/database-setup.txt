@@ -1,0 +1,90 @@
+-- Tạo bảng Users
+CREATE TABLE Users (
+  UserID INT PRIMARY KEY,
+  Username VARCHAR(255),
+  Password VARCHAR(255),
+  Email VARCHAR(255),
+  FullName VARCHAR(255),
+  Address VARCHAR(255),
+  Phone VARCHAR(20)
+);
+
+-- Tạo bảng Auctions
+CREATE TABLE Auctions (
+  AuctionID INT PRIMARY KEY,
+  Title VARCHAR(255),
+  StartTime DATETIME,
+  EndTime DATETIME,
+  StartingPrice DECIMAL(10,2),
+  CurrentPrice DECIMAL(10,2),
+  WinnerID INT,
+  FOREIGN KEY (WinnerID) REFERENCES Users(UserID)
+);
+
+-- Tạo bảng Bids
+CREATE TABLE Bids (
+  BidID INT PRIMARY KEY,
+  AuctionID INT,
+  UserID INT,
+  BidAmount DECIMAL(10,2),
+  Timestamp DATETIME,
+  FOREIGN KEY (AuctionID) REFERENCES Auctions(AuctionID),
+  FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+
+ALTER TABLE Bids
+ADD Timestamp DATETIME;
+
+ALTER TABLE Bids MODIFY BidID INT AUTO_INCREMENT;
+
+UPDATE Bids
+SET Timestamp = CURRENT_TIMESTAMP;
+
+-- Tạo bảng Products
+CREATE TABLE Products (
+  ProductID INT PRIMARY KEY,
+  AuctionID INT,
+  Name VARCHAR(255),
+  Description TEXT,
+  Price DECIMAL(10,2),
+  ProductImage VARCHAR(255),
+  SliderImages TEXT,
+  FOREIGN KEY (AuctionID) REFERENCES Auctions(AuctionID)
+);
+
+
+
+
+
+INSERT INTO
+
+INSERT INTO Users (UserID, Username, Password, Email, FullName, Address, Phone)
+VALUES (1, 'john_doe', 'password123', 'john@example.com', 'John Doe', '123 Main St', '1234567890'),
+       (2, 'jane_smith', 'p@ssw0rd', 'jane@example.com', 'Jane Smith', '456 Elm St', '9876543210');
+
+
+INSERT INTO Auctions (AuctionID, Title, StartTime, EndTime, StartingPrice, CurrentPrice, SellerID, WinnerID)
+VALUES (1, 'Auction 1', '2023-11-26 10:00:00', '2023-11-27 10:00:00', 100.00, 100.00, NULL),
+	   (2, 'Auction 1', '2023-11-26 10:00:00', '2023-11-27 10:00:00', 100.00, 100.00, NULL),
+	   (3, 'Auction 1', '2023-11-26 10:00:00', '2023-11-27 10:00:00', 100.00, 100.00, NULL),
+	   (4, 'Auction 1', '2023-11-26 10:00:00', '2023-11-27 10:00:00', 100.00, 100.00, NULL),
+	   (5, 'Auction 1', '2023-11-26 10:00:00', '2023-11-27 10:00:00', 100.00, 100.00, NULL),
+	   (6, 'Auction 1', '2023-11-26 10:00:00', '2023-11-27 10:00:00', 100.00, 100.00, NULL),
+	   (7, 'Auction 1', '2023-11-26 10:00:00', '2023-11-27 10:00:00', 100.00, 100.00, NULL),
+       (8, 'Auction 2', '2023-11-28 12:00:00', '2023-11-29 12:00:00', 50.00, 50.00, NULL);
+       
+
+INSERT INTO Bids (BidID, AuctionID, UserID, BidAmount)
+VALUES (1, 1, 2, 120.00),
+       (2, 2, 1, 60.00);
+
+
+INSERT INTO Products (ProductID, AuctionID, Name, Price, ProductImage, SliderImages)
+VALUES (1, 1, 'Realme 10', 99.99, 'realme-10.jpg', 'realme-10-1.jpg,realme-10-2.jpg,realme-10-3.jpg,realme-10-4.jpg,realme-10-5.jpg,realme-10-6.jpg'),
+       (2, 2, 'Realme C55', 49.99, 'realme-c55.jpg', 'realme-c55-1.jpg,realme-c55-2.jpg,realme-c55-3.jpg,realme-c55-4.jpg,realme-c55-5.jpg,realme-c55-6.jpg'),
+       (3, 3, 'Samsung Galaxy S23', 99.99, 'samsung-galaxy-s23.jpg', 'samsung-galaxy-s23-1.jpg,samsung-galaxy-s23-2.jpg,samsung-galaxy-s23-3.jpg,samsung-galaxy-s23-4.jpg,samsung-galaxy-s23-5.jpg,samsung-galaxy-s23-6.jpg'),
+       (4, 4, 'Samsung Galaxy S21 FE', 49.99, 'samsung-galaxy-s21-fe.jpg', 'samsung-galaxy-s21-fe-1.jpg,samsung-galaxy-s21-fe-2.jpg,samsung-galaxy-s21-fe-3.jpg,samsung-galaxy-s21-fe-4.jpg,samsung-galaxy-s21-fe-5.jpg,samsung-galaxy-s21-fe-6.jpg'),
+       (5, 5, 'Xiaomi 12', 99.99, 'xiaomi-12.jpg', 'xiaomi-12-1.jpg,xiaomi-12-2.jpg,xiaomi-12-3.jpg,xiaomi-12-4.jpg,xiaomi-12-5.jpg,xiaomi-12-6.jpg'),
+       (6, 6, 'Xiaomi 13T PRO', 49.99, 'xiaomi-13t-pro.jpg', 'xiaomi-13t-pro-1.jpg,xiaomi-13t-pro-2.jpg,xiaomi-13t-pro-3.jpg,xiaomi-13t-pro-4.jpg, xiaomi-13t-pro-5.jpg, xiaomi-13t-pro-6.jpg'),
+       (7, 7, 'Vivo Y36', 99.99, 'vivo-y36.jpg', 'vivo-y36-1.jpeg,vivo-y36-2.jpeg,vivo-y36-3.jpeg,vivo-y36-4.jpeg, vivo-y36-5.jpeg, vivo-y36-6.jpeg'),
+       (8, 8, 'Vivo V29e', 49.99, 'vivo-v29e.jpg', 'vivo-v29e-1.jpg,vivo-v29e-2.jpg,vivo-v29e-3.jpg,vivo-v29e-4.jpg,vivo-v29e-5.jpg,vivo-v29e-6.jpg');

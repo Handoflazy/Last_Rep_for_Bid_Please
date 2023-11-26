@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/sign-in.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Sign In | Register</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-left">
+            <a href="/">Home</a>
+            <a href="/product">Product</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div class="header-right">
+            <a href="/sign-in">Login</a>
+        </div>
+    </div>
+
+
+
+    <!-- Sign In Body -->
+    <div class="sign-in-and-register-body">
+        <div class="login-section">
+            <form action="/register" class="form-box register" method="post">
+                <h2>Welcome</h2>
+                <div class="input-box">
+                    <input type="text" required>
+                    <label for="">Name</label>
+                </div>
+                <div class="input-box">
+                    <input type="email" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="input-box" style="border-bottom: none;">
+                    <button class="btn">Register</button>
+                </div>
+                <div class="account-login">
+                    <label for="">Already have an account? <a href="#" class="login-link">Login</a></label>
+                </div>
+            </form>
+
+            <form action="/login" class="form-box login" method="post">
+                <h2>Login In</h2>
+                <div class="input-box">
+                    <input type="text" name="email" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="password" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="input-box" style="border-bottom: none;">
+                    <button class="btn" type="submit">Login</button>
+                </div>
+                <div class="account-login">
+                    <label for="">Create an account <a href="#" class="register-link">Sign up</a></label>
+                </div>
+                <% if (!isCorrect) { %>
+                    <p>Email hoạc Mật khẩu không đúng</p>
+                <% } %>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div class="footer">
+        <div class="footer-info">
+            <h1>Auction Online</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br> Nullam consectetur justo sed ex aliquam,
+                non
+                ornare purus faucibus.</p>
+            <div class="contact-link-list">
+                <i class='bx bxl-facebook-circle'></i>
+                <i class='bx bxl-twitter'></i>
+                <i class='bx bxl-google-plus-circle'></i>
+                <i class='bx bxl-instagram-alt'></i>
+                <i class='bx bxl-github'></i>
+            </div>
+        </div>
+
+        <div class="copy-right">
+            <p>© 2023 Tất cả các quyền thuộc Nguyễn Hồng Vũ.</p>
+        </div>
+    </div>
+
+    <script src="/js/sign-in.js"></script>
+</body>
+
+</html>

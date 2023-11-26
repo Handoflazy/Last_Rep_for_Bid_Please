@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/main-page.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Product Page</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-left">
+            <a href="/">Home</a>
+            <a href="/product">Product</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div class="header-right">
+            <a href="/sign-in">Login</a>
+        </div>
+    </div>
+
+
+    <!-- Main Body -->
+    <div class="main-body">
+        <!-- This is the main page -->
+        <div class="main-page">
+            <h1>AUCTION PRODUCTS</h1>
+
+            <div class="main-page-container">
+                <div class="current-auction-items">
+                    <% productList.forEach((item, index) => {  %>
+                        <div class="items">
+                            <a href="#"><img src="/img/auction-items/<%= `${item.ProductImage}` %>" alt=""></a>
+                            <div class="name"><%= item.Name %></div>
+                            <div class="price">
+                                <div class="start-price">
+                                    <span>Start Price</span>
+                                    <span><%= otherDataList[index].StartingPrice %></span>
+                                </div>
+                                <div class="current-price">
+                                    <span>Current Price</span>
+                                    <span><%= otherDataList[index].CurrentPrice %></span>
+                                </div>
+                            </div>
+    
+                            <a href="/instance-page/<%= item.ProductID %>"><button class="bid-button">Tham Gia Phiên Đấu Giá</button></a>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+
+            <a href="./product"><button class="view-more-btn">VIEW ALL AUCTIONS</button></a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div class="footer-info">
+            <h1>Auction Online</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br> Nullam consectetur justo sed ex aliquam,
+                non
+                ornare purus faucibus.</p>
+            <div class="contact-link-list">
+                <i class='bx bxl-facebook-circle'></i>
+                <i class='bx bxl-twitter'></i>
+                <i class='bx bxl-google-plus-circle'></i>
+                <i class='bx bxl-instagram-alt'></i>
+                <i class='bx bxl-github'></i>
+            </div>
+        </div>
+
+        <div class="copy-right">
+            <p>© 2023 Tất cả các quyền thuộc Nguyễn Hồng Vũ.</p>
+        </div>
+    </div>
+</body>
+
+</html>

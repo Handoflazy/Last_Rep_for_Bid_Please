@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/main-page.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Home Page</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-left">
+            <a href="/">Home</a>
+            <a href="/product">Product</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div class="header-right">
+            <a href="/sign-in">Login</a>
+        </div>
+    </div>
+
+    <div class="page-body">
+        <!-- This is the first background -->
+        <div class="first-background">
+            <div class="fb-body">
+                <div class="fb-body-left">
+                    <h1>Online <br> Auction</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur justo sed ex aliquam,
+                        non ornare purus faucibus.</p>
+                    <button>GET START</button>
+                </div>
+
+                <div class="fb-body-right">
+                    <div>
+                        <img src="/img/background_preview_rev_1.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- This is the main page -->
+        <div class="main-page">
+            <h1>CURRENT AUCTIONS</h1>
+
+            <div class="main-page-container">
+                <div class="current-auction-items">
+                    <% for (let i=0; i < productList.length / 2; i++) { %>
+                        <div class="items">
+                            <a href="#"><img src="/img/auction-items/<%= `${productList[i].ProductImage}` %>" alt=""></a>
+                            <div class="name">
+                                <%= productList[i].Name %>
+                            </div>
+                            <div class="price">
+                                <div class="start-price">
+                                    <span>Start Price</span>
+                                    <span>
+                                        <%= productList[i].Price %>
+                                    </span>
+                                </div>
+                                <div class="current-price">
+                                    <span>Current Price</span>
+                                    <span>
+                                        <%= productList[i].Price %>
+                                    </span>
+                                </div>
+                            </div>
+                            <a href="./html/instance-page.html"><button class="bid-button">Submit A Bid</button></a>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+
+            <a href="/product.html"><button class="view-more-btn">VIEW ALL AUCTIONS</button></a>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="footer-info">
+            <h1>Auction Online</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br> Nullam consectetur justo sed ex aliquam,
+                non
+                ornare purus faucibus.</p>
+            <div class="contact-link-list">
+                <i class='bx bxl-facebook-circle'></i>
+                <i class='bx bxl-twitter'></i>
+                <i class='bx bxl-google-plus-circle'></i>
+                <i class='bx bxl-instagram-alt'></i>
+                <i class='bx bxl-github'></i>
+            </div>
+        </div>
+
+        <div class="copy-right">
+            <p>© 2023 Tất cả các quyền thuộc Nguyễn Hồng Vũ.</p>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>
